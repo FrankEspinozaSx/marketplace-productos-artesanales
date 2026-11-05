@@ -1,4 +1,4 @@
-﻿# 4. Marketplace de Productos Artesanales - Hito 1
+# 4. Marketplace de Productos Artesanales - Hito 1
 
 Sistema web en Laravel para conectar artesanos y pequenos productores locales con compradores.
 
@@ -24,3 +24,12 @@ Sistema web en Laravel para conectar artesanos y pequenos productores locales co
 | Publicar Producto / Tienda | `/artesano/productos/crear` | Login | Acceso | Error 403 |
 | Explorar Catalogo y Carrito | `/comprador/catalogo` | Login | Error 403 | Acceso |
 | Checkout y Valoracion | `/comprador/checkout-valoracion` | Login | Error 403 | Acceso |
+
+## 4. Avances de Branding (Paleta de Colores)
+| Rol del Color | Escala | Codigo HEX |
+| :--- | :--- | :--- |
+| **Primario** |  `#75329F` |
+| **Secundario** |  `#421C59` |
+| **Acento** |  `#CBA6E3` |
+| **Fondo** |  `#F4ECF9` |
+| **Texto** | `#281136` |
