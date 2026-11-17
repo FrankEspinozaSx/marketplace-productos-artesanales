@@ -33,3 +33,15 @@ Sistema web en Laravel para conectar artesanos y pequenos productores locales co
 | **Acento** |  `#CBA6E3` |
 | **Fondo** |  `#F4ECF9` |
 | **Texto** | `#281136` |
+
+
+## Credenciales de Evaluación (Hito 3)
+Para evaluar el sistema con datos reales, ejecute `php artisan migrate:fresh --seed` y utilice las siguientes credenciales de prueba:
+
+**Módulo del Artesano:**
+- **Correo:** artesano@marketplace.pe
+- **Contraseña:** artesano123
+
+**Módulo del Cliente (Comprador):**
+- **Correo:** comprador@marketplace.pe
+- **Contraseña:** comprador123
