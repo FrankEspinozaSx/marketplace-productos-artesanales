@@ -1,4 +1,5 @@
-﻿<?php
+<?php
+
 namespace Database\Seeders;
 
 use App\Models\User;
@@ -9,7 +10,6 @@ use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
-    
     public function run(): void
     {
         $artesano = User::updateOrCreate(
@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name'     => 'Maestro Artesano Huanuco',
                 'password' => Hash::make('artesano123'),
-                'role'     => 'Artesano',
+                'role'     => 'artesano',
             ]
         );
 
@@ -57,7 +57,6 @@ class DatabaseSeeder extends Seeder
             'user_id'     => $artesano->id,
         ]);
 
-        // Pedido 
         Pedido::create([
             'user_id'         => $comprador->id,
             'producto_id'     => $prod1->id,

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -81,13 +81,13 @@
                     </li>
 
                     @auth
-                        @if(auth()->user()->rol === 'artesano')
+                        @if(auth()->user()->role === 'artesano')
                             <li class="nav-item"><a class="nav-link" href="{{ route('artesano.metricas') }}">Panel de Metricas y Pedidos (Tablas)</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ route('artesano.productos.index') }}">Inventario Productos (Tabla)</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ route('artesano.productos.create') }}">Publicar y Configurar Tienda (Formulario)</a></li>
-                        @elseif(auth()->user()->rol === 'comprador')
+                        @elseif(auth()->user()->role === 'comprador')
                             <li class="nav-item"><a class="nav-link" href="{{ route('comprador.catalogo') }}">Explorar Catalogo y Carrito (Tablas)</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('comprador.checkout.form') }}">Pago Seguro y Valoracion (Formulario)</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('comprador.checkout') }}">Pago Seguro y Valoracion (Formulario)</a></li>
                         @endif
                     @endauth
                 </ul>
@@ -101,7 +101,7 @@
                     @auth
                         <span class="text-white small me-2">
                             Usuario: <strong>{{ auth()->user()->name }}</strong> 
-                            <span class="badge badge-acento ms-1">{{ strtoupper(auth()->user()->rol) }}</span>
+                            <span class="badge badge-acento ms-1">{{ strtoupper(auth()->user()->role) }}</span>
                         </span>
                         <form method="POST" action="{{ route('logout') }}" class="m-0">
                             @csrf

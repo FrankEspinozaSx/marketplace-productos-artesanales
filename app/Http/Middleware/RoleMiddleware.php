@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 namespace App\Http\Middleware;
 
@@ -8,14 +8,14 @@ use Symfony\Component\HttpFoundation\Response;
 
 class RoleMiddleware
 {
-    public function handle(Request $request, Closure $next, string $rolPermitido): Response
+    public function handle(Request $request, Closure $next, string $role): Response
     {
-        if (!auth()->check()) {
+        if (! $request->user()) {
             return redirect()->route('login');
         }
 
-        if (auth()->user()->rol !== $rolPermitido) {
-            abort(403, 'Acceso denegado (Error 403): Tu perfil no tiene permisos para acceder al modulo de ' . strtoupper($rolPermitido));
+        if (strtolower((string) $request->user()->role) !== strtolower($role)) {
+            abort(403, 'No tienes permisos para acceder a este módulo.');
         }
 
         return $next($request);

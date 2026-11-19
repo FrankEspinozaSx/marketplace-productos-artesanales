@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Producto extends Model
 {
@@ -20,6 +21,15 @@ class Producto extends Model
         'user_id',
     ];
 
+    public function artesano(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function getRegionEtiquetaAttribute(): string
+    {
+        return !empty($this->region) ? $this->region : 'Huánuco';
+    }
 
     public static function obtenerTodos(): Collection
     {
@@ -39,6 +49,8 @@ class Producto extends Model
 
     public static function registrarProducto(array $datos): self
     {
+        $datos['region'] = !empty($datos['region']) ? $datos['region'] : 'Huánuco';
+
         return self::create($datos);
     }
 }
